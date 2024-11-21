@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form id="registrationForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <label for="phone">Phone:</label>
+        <input type="phone" id="phone" name="phone" required>
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <script>
+        // Form submit event
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission to handle it with JavaScript
+            alert('Form Submitted Successfully!');
+        });
+
+        // Form reset event
+        document.getElementById('registrationForm').addEventListener('reset', function() {
+            alert('Form has been reset.');
+        });
+
+        // Username focus event
+        document.getElementById('username').addEventListener('focus', function() {
+            console.log('Username field focused');
+        });
+
+        // Username blur event
+        document.getElementById('phone').addEventListener('blur', function() {
+            console.log('Phone number field lost focus');
+        });
+
+        // Email input event
+        document.getElementById('email').addEventListener('input', function() {
+            console.log('Email input changed: ', this.value);
+        });
+
+        // Password change event
+        document.getElementById('password').addEventListener('change', function() {
+            console.log('Password changed: ', this.value);
+        });
+
+        // Validate email on blur
+        document.getElementById('email').addEventListener('blur', function() {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(this.value)) {
+                alert('Please enter a valid email address.');
+            }
+        });
+
+        // Password length check
+        document.getElementById('password').addEventListener('input', function() {
+            if (this.value.length < 6) {
+                console.log('Password is too short');
+            }
+        });
+
+        // Button click event
+        document.querySelector('button[type="submit"]').addEventListener('click', function() {
+            console.log('Submit button clicked');
+        });
+
+        // Mouseover and mouseout events on submit button
+        document.querySelector('button[type="submit"]').addEventListener('mouseover', function() {
+            console.log('Mouse over submit button');
+        });
+
+        document.querySelector('button[type="submit"]').addEventListener('mouseout', function() {
+            console.log('Mouse out from submit button');
+        });
+    </script>
+</body>
+</html>
